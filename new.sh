@@ -6,8 +6,12 @@ fi
 
 set -e
 
-NUM=$(printf '%03d' $NUM)
-NAME="prob${NUM}"
+if [[ "$NUM" =~ "^[0-9+]$" ]]; then
+    NUM=$(printf '%03d' $NUM)
+    NAME="prob${NUM}"
+else
+    NAME="$NUM"
+fi
 
 mkdir "$NAME"
 
